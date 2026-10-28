@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f4ef;
+  --foreground: #1c1917;
+  --card: #fffcf7;
+  --card-foreground: #1c1917;
+  --popover: #fffcf7;
+  --popover-foreground: #1c1917;
+  --primary: #1f4d3a;
+  --primary-foreground: #f5faf7;
+  --secondary: #e8e2d6;
+  --secondary-foreground: #2c2824;
+  --muted: #efe9df;
+  --muted-foreground: #6b635a;
+  --accent: #e4ebe6;
+  --accent-foreground: #1f4d3a;
+  --destructive: #b42318;
+  --destructive-foreground: #fff7f6;
+  --border: #ddd4c6;
+  --input: #ddd4c6;
+  --ring: #1f4d3a;
+  --radius: 0.625rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 100% -20%, rgba(31, 77, 58, 0.08), transparent),
+      radial-gradient(ellipse 60% 40% at 0% 100%, rgba(180, 140, 80, 0.06), transparent);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  .font-serif {
+    font-family: var(--font-serif), ui-serif, Georgia, serif;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  body {
+    background: white;
+  }
+}
+
+.print-only {
+  display: none;
+}
